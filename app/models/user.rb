@@ -24,4 +24,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :user_name, uniqueness: true
+
+  has_one :profile, dependent: :destroy #ユーザーは１つのプロフィールを持つ
+
 end
