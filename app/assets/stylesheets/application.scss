@@ -1,12 +1,18 @@
 @import 'login';
-
+@import 'profile';
 body {
     margin: 0px;
     font-family: poppins;
 }
+
 .container {
     margin: 0px 16px;
 }
+
 a {
     text-decoration: none;
+}
+
+p {
+    margin: 0px;
 }
