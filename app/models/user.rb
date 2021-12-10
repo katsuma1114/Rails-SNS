@@ -24,4 +24,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :user_name, uniqueness: true
+
+  has_one :profile, dependent: :destroy 
+
+  def prepare_profile
+    profile || build_profile
+  end
+
+  def avatar_image #アバターがあればそれを、なければno-img-avatar.jpgを返す
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      "no-user-image.png"
+    end
+  end
 end

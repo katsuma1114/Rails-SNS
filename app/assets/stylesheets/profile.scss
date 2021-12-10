@@ -1,0 +1,128 @@
+@import 'variables';
+
+.profile {
+    text-align: center;
+    position: relative;
+
+    &_back_image {
+        position: absolute;
+        top: 0px;
+        left: 16px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &_header {
+        text-align: center;
+        margin-top: 45px;
+    }
+
+    &_name {
+        font-size: $page-title-size;
+    }
+
+    &_avatar {
+        text-align: center;
+        margin-top: 35px;
+        margin-bottom: 45px;
+    }
+    
+    &_image {
+        height: 77px;
+        width: 77px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &_info {
+
+        justify-content: space-between;
+        text-align: center;
+        display: flex;
+        font-size: 14px;
+        margin: 0px;
+        margin-bottom: 45px;
+
+        &_num {
+            justify-content: space-around;
+        }
+
+        &_posts {
+            width: 84px;
+        }
+
+        &_followers {
+            width: 84px;
+        }
+
+        &_following {
+            width: 84px;
+        }
+
+        &_contents {
+            width: 100%;
+            margin-top: 30px;
+            .photos {
+                width: 100%;
+                line-height: 0;
+                -moz-column-count:    2;
+                -moz-column-gap:      0px;
+                column-count:         2;
+                column-gap:           5px;
+                img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+        }
+    }
+
+}
+
+
+// .profile-info-num {
+//     justify-content: space-around;
+// }
+
+
+// .profile-info-posts {
+//     width: 84px;
+// }
+// .profile-info-followers {
+//     width: 84px;
+// }
+// .profile-info-following {
+//     width: 84px;
+// }
+
+// .profile-back-image {
+//     position: absolute;
+//     top: 0px;
+//     left: 16px;
+//     width: 20px;
+//     height: 20px;
+// }
+
+// .profile-header {
+//     text-align: center;
+//     margin-top: 45px;
+// }
+
+// .profile-name {
+//     font-size: $page-title-size;
+// }
+
+// .profile-avatar {
+//     text-align: center;
+//     margin-top: 35px;
+//     margin-bottom: 45px;
+// }
+
+// .profile-info {
+//     justify-content: space-between;
+//     text-align: center;
+//     display: flex;
+//     font-size: 14px;
+//     margin: 0px;
+//     margin-bottom: 45px;
+// }

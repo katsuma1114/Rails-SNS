@@ -1,0 +1,31 @@
+.profile.container
+  .profile_header
+    .profile_back
+      = image_tag 'back.svg', class: 'profile_back_image'
+    .profile_name
+      %p= current_user.user_name
+  .profile_avatar
+    = image_tag current_user.avatar_image, class: 'profile_image'
+  .profile_form
+    = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
+      %div
+        = f.file_field :avatar
+      = f.submit '保存'
+  .profile_info
+    .profile_info_posts
+      %p.profile_info_num 44
+      %p.profile_info_text Posts
+    .profile_info_followers
+      %p.profile_info_num 44
+      %p.profile_info_text Followers
+    .profile_info_following
+      %p.profile_info_num 44
+      %p.profile_info_text Following
+  .profile_contents
+    .photos
+      = image_tag 'photo1.png'
+      = image_tag 'photo2.png'
+      = image_tag 'photo3.png'
+      = image_tag 'photo4.png'
+      = image_tag 'photo5.png'
+      = image_tag 'photo6.png'
