@@ -26,6 +26,13 @@
         margin-top: 35px;
         margin-bottom: 45px;
     }
+    
+    &_image {
+        height: 77px;
+        width: 77px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 
     &_info {
 
