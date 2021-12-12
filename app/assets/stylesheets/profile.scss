@@ -4,19 +4,6 @@
     text-align: center;
     position: relative;
 
-    &_back_image {
-        position: absolute;
-        top: 0px;
-        left: 16px;
-        width: 20px;
-        height: 20px;
-    }
-
-    &_header {
-        text-align: center;
-        margin-top: 45px;
-    }
-
     &_name {
         font-size: $page-title-size;
     }
@@ -26,7 +13,7 @@
         margin-top: 35px;
         margin-bottom: 45px;
     }
-    
+
     &_image {
         height: 77px;
         width: 77px;
