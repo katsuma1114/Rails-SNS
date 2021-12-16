@@ -1,25 +1,7 @@
 .header
   .header_action
     = link_to new_article_path do
-      = image_tag 'camera.png', class: 'header_icon'
-.container
-  .article
-    .article_nav
-      = image_tag 'article-avatar.png', class: 'article_nav_avatar'
-      .article_nav_text
-        .article_nav_text_name
-          %p JMax_21
-        .article_nav_text_time
-          %p 3 hours ago
-    .article_content
-      = image_tag 'article1.png',class: 'article_content_image'
-      = image_tag 'article2.png',class: 'article_content_image'
-      = image_tag 'article3.png',class: 'article_content_image'
-    .article_action
-      = image_tag 'heart-active.png', class: 'article_icon'
-      = image_tag 'comment.png', class: 'article_icon'
-      = image_tag 'share.png', class: 'article_icon'
-    .article_liked
-      %p Jasmine and 12000 other liked your post
-    .article_comments
-      %p JMax_21 summer holiday :3
+      = image_tag 'camera.png', class: 'header_left'
+- @article.each do |article|
+  = render 'commons/article', article: article
+

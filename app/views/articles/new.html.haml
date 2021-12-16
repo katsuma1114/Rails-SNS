@@ -1,0 +1,17 @@
+.container
+  .header
+    = link_to root_path do
+      %p.header_left.post_cansel Cance
+    %p.page_title Status
+  .post_user-data
+    = image_tag current_user.avatar_image, class: 'post_avatar'
+    %p.post_name= current_user.user_name
+  = form_with( model: @article, url: articles_path, method: 'post', local: true ) do |f|
+    %div.post_content
+      = f.text_field :content, placeholder: ' What is on your mind ? ', class: 'text'
+    %label.post_contents_image
+      + Album
+      = f.file_field :images, multiple: true
+    %div
+      = f.submit 'Post', class: 'header_right'
+      

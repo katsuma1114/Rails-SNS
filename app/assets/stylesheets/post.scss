@@ -1,0 +1,41 @@
+.post {
+
+    &_cansel {
+        color: #2F80ED;
+    }
+
+    &_content {
+        margin-bottom: 5px;
+    }
+
+    &_user-data {
+        display: flex;
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    &_avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        margin-right: 18px;
+    }
+
+    &_name {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    &_contents_image {
+        font-size: 14px;
+        border: 1px solid #E0E0E0;
+        box-sizing: border-box;
+        padding: 6px 12px;
+
+        input {
+            display: none;
+        }
+    }
+
+
+}

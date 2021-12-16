@@ -32,6 +32,7 @@
             scroll-snap-align: start;
             display: block;
             max-height: 450px;
+            max-width: 100%;
             flex: none;
             object-fit: cover;
             min-width: 100%;
@@ -44,16 +45,24 @@
     }
 
     &_icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 15px;
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
     }
 
     &_liked {
         font-size: 12px;
     }
 
-    &_comments {
+    &_text {
+        display: flex;
+    }
+
+    &_user_name {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    &_text_content {
         font-size: 12px;
     }
 
