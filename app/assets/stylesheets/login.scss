@@ -16,6 +16,12 @@
 .text{
     width: 100%;
     margin-bottom: 20px;
+    padding-bottom: 5px;
+
+    &::placeholder {
+        font-size: 18px;
+        line-height: 22px;
+    }
 }
 
 .form-btn {

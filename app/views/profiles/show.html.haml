@@ -1,9 +1,8 @@
 .profile.container
-  .profile_header
-    .profile_back
-      = image_tag 'back.svg', class: 'profile_back_image'
+  .header
+    = image_tag 'back.svg', class: 'header_left'
     .profile_name
-      %p= current_user.user_name
+      %p.page_title= current_user.user_name
   .profile_avatar
     = image_tag current_user.avatar_image, class: 'profile_image'
   .profile_form

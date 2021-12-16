@@ -1,5 +1,10 @@
 @import 'login';
 @import 'profile';
+@import 'commons';
+@import 'article';
+@import 'post';
+@import 'flash';
+
 body {
     margin: 0px;
     font-family: poppins;
@@ -7,6 +12,7 @@ body {
 
 .container {
     margin: 0px 16px;
+    position: relative;
 }
 
 a {
