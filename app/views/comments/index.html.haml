@@ -1,0 +1,18 @@
+.comments.container
+  .header
+    = image_tag 'back.svg', class: 'header_left'
+    %div
+      %p.page_title= current_user.user_name
+  -  @comments.each do |comment|
+    .comment_content
+      .comment_content_avatar
+        = image_tag @article.user.avatar_image
+      .comment_content_texts
+        .comment_content_user-name
+          %p= @article.user.user_name
+        .comment_content_text
+          %p= comment.content
+  = form_with(model: @comment, url: article_comments_path(@comment.article), local: true) do |f|
+    %div
+      = f.text_area :content
+    = f.submit '投稿する'
