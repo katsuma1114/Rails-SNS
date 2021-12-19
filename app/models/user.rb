@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def prepare_profile
     profile || build_profile
@@ -38,5 +39,9 @@ class User < ApplicationRecord
     else
       "no-user-image.png"
     end
+  end
+
+  def has_liked?(article)#いいねしてるかしてないか判断
+    likes.exists?(article_id: article.id)
   end
 end

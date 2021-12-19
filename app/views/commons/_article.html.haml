@@ -1,23 +1,26 @@
 .container
-  .article
+  .article#article{data: {article_id: article.id}}
     .article_nav
       = image_tag 'article-avatar.png', class: 'article_nav_avatar'
       .article_nav_text
         .article_nav_text_name
-          %p= current_user.user_name
+          %p ____sktm____
         .article_nav_text_time
           %p 3 hours ago
     .article_content
       - article.images.each do |images| 
         = image_tag images, class: 'article_content_image'
     .article_action
-      = image_tag 'heart-active.png', class: 'article_icon'
+      .article_heart.hidden.active-heart
+        = image_tag 'heart-active.svg', class: 'article_icon'
+      .article_heart.hidden.inactive-heart
+        = image_tag 'heart.svg', class: 'article_icon'
       = image_tag 'comment.png', class: 'article_icon'
       = image_tag 'share.png', class: 'article_icon'
     .article_liked
       %p Jasmine and 12000 other liked your post
     .article_text
       .article_user_name
-        %p= current_user.user_name
+        %p ____sktm____
       .article_text_content
         %p= article.content
