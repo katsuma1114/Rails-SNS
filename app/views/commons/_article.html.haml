@@ -1,5 +1,5 @@
 .container
-  .article
+  .article#article{data: {article_id: article.id}}
     .article_nav
       = image_tag 'article-avatar.png', class: 'article_nav_avatar'
       .article_nav_text
@@ -11,12 +11,10 @@
       - article.images.each do |images| 
         = image_tag images, class: 'article_content_image'
     .article_action
-      - if current_user.has_liked?(article)
-        = link_to article_like_path(article), data: { method: 'delete' } do
-          = image_tag 'heart-active.svg', class: 'article_icon'
-      - else
-        = link_to article_like_path(article), data: { method: 'post' } do
-          = image_tag 'heart.svg', class: 'article_icon'
+      .article_heart.hidden.active-heart
+        = image_tag 'heart-active.svg', class: 'article_icon'
+      .article_heart.hidden.inactive-heart
+        = image_tag 'heart.svg', class: 'article_icon'
       = image_tag 'comment.png', class: 'article_icon'
       = image_tag 'share.png', class: 'article_icon'
     .article_liked
