@@ -8,10 +8,10 @@
     -  @comments.each do |comment|
       .comment_content
         .comment_content_avatar
-          = image_tag @article.user.avatar_image, class: 'comment_content_avatar_image'
+          = image_tag comment.user.avatar_image, class: 'comment_content_avatar_image'
         .comment_content_texts
           .comment_content_user-name
-            %p= @article.user.user_name
+            %p= comment.user.user_name
           .comment_content_text
             %p= comment.content
   = form_with(model: @comment, url: article_comments_path(@comment.article), local: true) do |f|

@@ -3,16 +3,17 @@ class CommentsController < ApplicationController
     def index
 
         @article = Article.find(params[:article_id])
-        @comments = @article.comments
 
         @comment = @article.comments.build 
         
+        @comments = @article.comments
     end
 
     def create
         @article = Article.find(params[:article_id])
         @comment = @article.comments.build(comment_params)
         @comment.user = current_user
+        
         if @comment.save
             redirect_to action: :index, notice: 'コメントを追加しました'
         else
