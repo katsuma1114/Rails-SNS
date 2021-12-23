@@ -1,0 +1,60 @@
+.comment {
+    margin-top: 50px;
+
+    &_content {
+        display: flex;
+        width: 100%;
+        margin-bottom: 20px;
+
+
+        &_avatar {
+            margin-right: 14px;
+            margin-top: 6px;
+
+            &_image {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &_user-name {
+            color: #414040;
+            font-size: 16px;
+            line-height: 24px
+            margin-bottom 6px;
+        }
+
+        &_text {
+            color: #9B9B9B;
+            font-size: 14px;
+            line-height: 20px
+            word-break normal;
+        }
+    }
+
+    &_form {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        height: auto;
+        border: 1px solid #E0E0E0;
+    }
+    
+    &_create-icon {
+        height: 42px;
+
+        input {
+            display: none;
+        }
+    }
+
+    &_text-area {
+
+        textarea {
+            border: none;
+            width: 100%;
+            height: 42px;
+            padding: 0px;
+        }
+    }
+}

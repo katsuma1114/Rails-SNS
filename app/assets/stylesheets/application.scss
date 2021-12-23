@@ -1,9 +1,10 @@
 @import 'login';
 @import 'profile';
-@import 'commons';
+@import 'header';
 @import 'article';
 @import 'post';
 @import 'flash';
+@import 'comment';
 
 body {
     margin: 0px;
@@ -21,6 +22,10 @@ a {
 
 p {
     margin: 0px;
+}
+
+.page_title {
+    font-size: 16px;
 }
 
 .hidden {

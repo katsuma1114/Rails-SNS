@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!
     def index
-        @comments = Comment.all
 
         @article = Article.find(params[:article_id])
-        @comment = @article.comments.build #indexページでnewする
+        @comments = @article.comments
+
+        @comment = @article.comments.build 
+        
     end
 
     def create
