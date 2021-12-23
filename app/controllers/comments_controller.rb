@@ -1,16 +1,18 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!
     def index
-        @comments = Comment.all
-
+    
         @article = Article.find(params[:article_id])
         @comment = @article.comments.build #indexページでnewする
+
+        @comments = @article.comments
     end
 
     def create
         @article = Article.find(params[:article_id])
         @comment = @article.comments.build(comment_params)
         @comment.user = current_user
+        binding.pry
         if @comment.save
             redirect_to action: :index, notice: 'コメントを追加しました'
         else
