@@ -1,5 +1,7 @@
 .comment {
+
     margin-top: 50px;
+    margin-bottom: 75px;
 
     &_content {
         display: flex;
@@ -8,12 +10,14 @@
 
 
         &_avatar {
-            margin-right: 14px;
+            margin-right: 18px;
             margin-top: 6px;
 
             &_image {
-                width: 32px;
-                height: 32px;
+                width: 36px;
+                height: 36px;
+                object-fit: cover;
+                border-radius: 50%;
             }
         }
 
@@ -21,7 +25,7 @@
             color: #414040;
             font-size: 16px;
             line-height: 24px
-            margin-bottom 6px;
+            margin-bottom 8px;
         }
 
         &_text {
@@ -33,28 +37,41 @@
     }
 
     &_form {
-        display: flex;
         position: fixed;
+        display: flex;
+        left: 16px;
+        right: 16px;
         bottom: 20px;
-        height: auto;
-        border: 1px solid #E0E0E0;
+        
+        
+        &_container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            padding-left: 15px;
+            box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.15);
+            background-color: #fff;
+        }
+        
     }
-
+    
     &_create-icon {
         height: 42px;
-
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        
         input {
             display: none;
         }
     }
-
+    
     &_text-area {
-
-        textarea {
-            border: none;
-            width: 100%;
-            height: 42px;
-            padding: 0px;
-        }
+        width: 100%;
+        align-items: center;
+        border: none;
+        width: 100%;
+        height: 42px;
+        padding: 0px;
     }
 } 
