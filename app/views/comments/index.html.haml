@@ -1,0 +1,23 @@
+.container
+  .header
+    = image_tag 'back.svg', class: 'header_left'
+    %div
+      %p.page_title Comments
+  .comment
+    -  @comments.each do |comment|
+      .comment_content
+        .comment_content_avatar
+          = image_tag comment.user.avatar_image, class: 'comment_content_avatar_image'
+        .comment_content_texts
+          .comment_content_user-name
+            %p= comment.user.user_name
+          .comment_content_text
+            %p= comment.content
+  = form_with(model: [@article, @comment], local: true) do |f|
+    .comment_form
+      .comment_form_container
+        %label.comment_create-icon
+          = image_tag 'comment.svg'
+          = f.submit
+        = f.text_area :content, class: 'comment_text-area'
+        -# %div.comment_text-area

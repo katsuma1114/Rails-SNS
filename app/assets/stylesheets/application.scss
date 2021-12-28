@@ -4,6 +4,8 @@
 @import 'article';
 @import 'post';
 @import 'flash';
+@import 'comment';
+@import 'header';
 
 body {
     margin: 0px;
@@ -21,6 +23,10 @@ a {
 
 p {
     margin: 0px;
+}
+
+.page_title {
+    font-size: 16px;
 }
 
 .hidden {

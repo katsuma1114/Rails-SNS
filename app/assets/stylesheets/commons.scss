@@ -1,38 +1,5 @@
-@import 'variables';
-
-.header {
-    text-align: center;
-    margin-top: 45px;
 
 
-    &_action {
-        position: relative;
-        height: 20px;
-    }
-
-    &_left {
-        position: absolute;
-        top: 0px;
-        left: 16px;
-        width: 24px;
-        height: 24px;
-    }
-
-    &_right {
-        color: #BDBDBD;
-        border: none;
-        text-decoration: none;
-        background-color: transparent;
-        font-size: 16px;
-        position: absolute;
-        top: 0px;
-        right: 16px;
-    }
-
-}
-.page_title {
-    font-size: $page-title-size;
-}
 
 
 

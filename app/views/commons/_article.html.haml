@@ -15,8 +15,9 @@
         = image_tag 'heart-active.svg', class: 'article_icon'
       .article_heart.hidden.inactive-heart
         = image_tag 'heart.svg', class: 'article_icon'
-      = image_tag 'comment.png', class: 'article_icon'
-      = image_tag 'share.png', class: 'article_icon'
+      = link_to article_comments_path(article) do
+        = image_tag 'comment.svg', class: 'article_icon'
+      = image_tag 'share.svg', class: 'article_icon'
     .article_liked
       %p Jasmine and 12000 other liked your post
     .article_text
