@@ -1,0 +1,38 @@
+.profile.container
+  .header
+    = link_to root_path do
+      = image_tag 'back.svg', class: 'header_left'
+    - if current_user&.has_followed?(@user)
+      = link_to account_unfollows_path(@user), data: { method: 'post'} do
+        %p.header_right Followed
+    - else
+      = link_to account_follows_path(@user), data: { method: 'post'} do
+        %p.header_right Follow
+    .profile_name
+      %p.page_title= @user.user_name
+  .profile_avatar
+    = image_tag @user.avatar_image, class: 'profile_image'
+  - if @user == current_user
+    .profile_form
+      = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
+        %div
+          = f.file_field :avatar
+        = f.submit '保存'
+  .profile_info
+    .profile_info_posts
+      %p.profile_info_num 44
+      %p.profile_info_text Posts
+    .profile_info_followers
+      %p.profile_info_num 44
+      %p.profile_info_text Followers
+    .profile_info_following
+      %p.profile_info_num 44
+      %p.profile_info_text Following
+-#   .profile_contents
+-#     .photos
+-#       = image_tag 'photo1.png'
+-#       = image_tag 'photo2.png'
+-#       = image_tag 'photo3.png'
+-#       = image_tag 'photo4.png'
+-#       = image_tag 'photo5.png'
+-#       = image_tag 'photo6.png'

@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   resources :articles do
     resource :like, only: [:show, :create, :destroy]
+    
     resources :comments, only: [:index, :create, ]
   end
 
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:create]
+    resources :unfollows, only: [:create] #followsrelationshipをdestroyならまだいいが、followをdestroyにしたくない
+  end
   resource :profile, only: [:show, :edit, :update]
 end
