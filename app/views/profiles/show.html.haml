@@ -16,10 +16,10 @@
       %p.profile_info_num 44
       %p.profile_info_text Posts
     .profile_info_followers
-      %p.profile_info_num 44
+      %p.profile_info_num= current_user.follower_count 
       %p.profile_info_text Followers
     .profile_info_following
-      %p.profile_info_num 44
+      %p.profile_info_num= current_user.following_count
       %p.profile_info_text Following
   -# .profile_contents
   -#   .photos
