@@ -26,6 +26,15 @@
 
         &_num {
             justify-content: space-around;
+            color: #000000;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        &_text {
+            color: #000;
         }
 
         &_posts {

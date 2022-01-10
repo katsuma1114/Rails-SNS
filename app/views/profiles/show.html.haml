@@ -15,12 +15,14 @@
     .profile_info_posts
       %p.profile_info_num 44
       %p.profile_info_text Posts
-    .profile_info_followers
-      %p.profile_info_num= current_user.follower_count 
-      %p.profile_info_text Followers
-    .profile_info_following
-      %p.profile_info_num= current_user.following_count
-      %p.profile_info_text Following
+    = link_to account_followers_path(current_user) do
+      .profile_info_followers
+        %p.profile_info_num= current_user.follower_count 
+        %p.profile_info_text Followers
+    = link_to account_followings_path(current_user) do
+      .profile_info_following
+        %p.profile_info_num= current_user.following_count
+        %p.profile_info_text Following
   -# .profile_contents
   -#   .photos
   -#     = image_tag 'photo1.png'
