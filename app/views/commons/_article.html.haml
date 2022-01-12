@@ -1,5 +1,5 @@
 .container
-  .article#article{data: {article_id: article.id}}
+  .article#article-show{data: {article_id: article.id}}
     .article_nav
       = link_to account_path(article.user) do
         = image_tag article.user.avatar_image, class: 'article_nav_avatar'

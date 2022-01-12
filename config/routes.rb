@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :accounts, only: [:show] do
-    resources :follows, only: [:create]
-    resources :unfollows, only: [:create] #followsrelationshipをdestroyならまだいいが、followをdestroyにしたくない
+    resource :follows, only: [:show, :create]
+    resource :unfollows, only: [:create]
 
     resources :followings, only: [:index]
     resources :followers, only: [:index]
