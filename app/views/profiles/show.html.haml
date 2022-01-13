@@ -1,6 +1,7 @@
 .profile.container
   .header
-    = image_tag 'back.svg', class: 'header_left'
+    = link_to root_path do
+      = image_tag 'back.svg', class: 'header_left'
     .profile_name
       %p.page_title= current_user.user_name
   .profile_avatar
@@ -14,17 +15,19 @@
     .profile_info_posts
       %p.profile_info_num 44
       %p.profile_info_text Posts
-    .profile_info_followers
-      %p.profile_info_num 44
-      %p.profile_info_text Followers
-    .profile_info_following
-      %p.profile_info_num 44
-      %p.profile_info_text Following
-  .profile_contents
-    .photos
-      = image_tag 'photo1.png'
-      = image_tag 'photo2.png'
-      = image_tag 'photo3.png'
-      = image_tag 'photo4.png'
-      = image_tag 'photo5.png'
-      = image_tag 'photo6.png'
+    = link_to account_followers_path(current_user) do
+      .profile_info_followers
+        %p.profile_info_num= current_user.follower_count 
+        %p.profile_info_text Followers
+    = link_to account_followings_path(current_user) do
+      .profile_info_following
+        %p.profile_info_num= current_user.following_count
+        %p.profile_info_text Following
+  -# .profile_contents
+  -#   .photos
+  -#     = image_tag 'photo1.png'
+  -#     = image_tag 'photo2.png'
+  -#     = image_tag 'photo3.png'
+  -#     = image_tag 'photo4.png'
+  -#     = image_tag 'photo5.png'
+  -#     = image_tag 'photo6.png'

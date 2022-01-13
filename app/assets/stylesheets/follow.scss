@@ -1,0 +1,28 @@
+.follow {
+    display: flex;
+    padding: 20px 0px;
+    border-bottom: 1px solid #C4C4C4;
+
+    &_title {
+        margin-bottom: 30px;
+    }
+
+    &_avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        align-items: center;
+        display: flex;
+        margin-right: 25px;
+    }
+
+    &_name {
+        height: 100%;
+        font-size: 14px;
+        align-items: center;
+        display: flex;
+    }    
+
+
+}
