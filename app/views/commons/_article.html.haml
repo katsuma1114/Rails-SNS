@@ -1,5 +1,5 @@
 .container
-  .article#article-show{data: {article_id: article.id}}
+  .article
     .article_nav
       = link_to account_path(article.user) do
         = image_tag article.user.avatar_image, class: 'article_nav_avatar'
@@ -12,9 +12,9 @@
       - article.images.each do |images| 
         = image_tag images, class: 'article_content_image'
     .article_action
-      .article_heart.hidden.active-heart
+      .article_heart.hidden.active-heart{:id => article.id}
         = image_tag 'heart-active.svg', class: 'article_icon'
-      .article_heart.hidden.inactive-heart
+      .article_heart.hidden.inactive-heart{:id => article.id}
         = image_tag 'heart.svg', class: 'article_icon'
       = link_to article_comments_path(article) do
         = image_tag 'comment.svg', class: 'article_icon'

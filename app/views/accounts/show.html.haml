@@ -2,10 +2,8 @@
   .header
     = link_to root_path do
       = image_tag 'back.svg', class: 'header_left'
-    = link_to account_unfollows_path(@user), data: { method: 'post'} do
-      %p.header_right.hidden.btn-following Following
-    = link_to account_follows_path(@user), data: { method: 'post'} do
-      %p.header_right.hidden.btn-follow Follow
+    %p.header_right.hidden.btn-following Following
+    %p.header_right.hidden.btn-follow Follow
     .profile_name
       %p.page_title= @user.user_name
   .profile_avatar
@@ -16,7 +14,7 @@
       %p.profile_info_text Posts
     = link_to account_followers_path(@user) do
       .profile_info_followers
-        %p.profile_info_num= @user.follower_count
+        %p.profile_info_num.follower_count= @user.follower_count
         %p.profile_info_text Followers
     = link_to account_followings_path(@user) do
       .profile_info_following

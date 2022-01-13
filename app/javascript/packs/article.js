@@ -4,49 +4,58 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-const handleHeartDisplay = (hasLiked) => {
+const handleHeartDisplay = (hasLiked, articleId) => {
   if (hasLiked) {
-    $('.active-heart').removeClass('hidden')
+    $('#' + articleId + '.active-heart').removeClass('hidden')
   } else {
-    $('.inactive-heart').removeClass('hidden')
+    $('#' + articleId + '.inactive-heart').removeClass('hidden')
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const dataset = $('#article-show').data()
-  const articleId = dataset.articleId
-
-  axios.get(`/articles/${articleId}/like`)
-    .then((response) => {
-      const hasLiked = response.data.hasLiked
-      handleHeartDisplay(hasLiked)
-    })
-
-  $('.inactive-heart').on('click', () => {
+const listenInactiveHeartEvent = (articleId) => {
+  $('#' + articleId + '.inactive-heart').on('click', () => {
     axios.post(`/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
-            $('.active-heart').removeClass('hidden')
-            $('.inactive-heart').addClass('hidden')
+          $('#' + articleId + '.active-heart').removeClass('hidden')
+          $('#' + articleId + '.inactive-heart').addClass('hidden')
         }
       })
       .catch((e) => {
-        window.alert('Error')
         console.log(e)
       })
   })
+}
 
-  $('.active-heart').on('click', () => {
+const listenActiveHeartEvent = (articleId) => {
+  $('#' + articleId + '.active-heart').on('click', () => {
     axios.delete(`/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
-            $('.active-heart').addClass('hidden')
-            $('.inactive-heart').removeClass('hidden')
+          $('#' + articleId + '.active-heart').addClass('hidden')
+          $('#' + articleId + '.inactive-heart').removeClass('hidden')
         }
       })
       .catch((e) => {
-        window.alert('Error')
         console.log(e)
       })
+  })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  $('.active-heart').each(function() {
+    const articleId = $(this).attr('id')
+
+    axios.get(`/articles/${articleId}/like`)
+    .then((response) => {
+      const hasLiked = response.data.hasLiked
+      handleHeartDisplay(hasLiked, articleId)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+
+    listenInactiveHeartEvent(articleId)
+    listenActiveHeartEvent(articleId)
   })
 })

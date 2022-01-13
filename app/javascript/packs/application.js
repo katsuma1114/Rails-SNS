@@ -29,6 +29,20 @@ const handleFollowBtn = (hasFollowed) => {
       }
 }
 
+// フォロワー数カウントアップ機能
+const followersUpCounter = () => {
+    const followerCount = Number($(".follower_count").text());
+    const countUp = followerCount + 1;
+    $(".follower_count").text(countUp);
+}
+
+// フォロワー数カウントダウン機能
+const followersDownCounter = () => {
+    const followerCount = Number($(".follower_count").text());
+    const countUp = followerCount - 1;
+    $(".follower_count").text(countUp);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const dataset = $('#account-show').data();
@@ -38,5 +52,37 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((response) => {
           const hasFollowed = response.data.followStatus
           handleFollowBtn(hasFollowed)
+      })
+
+      $('.btn-follow').on('click', () => {
+        axios.post(`/accounts/${accountId}/follows`)
+          .then((response) => {
+            if (response.data.status === 'ok') {
+                followersUpCounter()
+
+                $('.btn-following').removeClass('hidden')
+                $('.btn-follow').addClass('hidden')
+            }
+          })
+          .catch((e) => {
+            window.alert('Error')
+            console.log(e)
+          })
+      })
+      
+      $('.btn-following').on('click', () => {
+        axios.post(`/accounts/${accountId}/unfollows`)
+          .then((response) => {
+            if (response.data.status === 'ok') {
+                followersDownCounter()
+
+                $('.btn-follow').removeClass('hidden')
+                $('.btn-following').addClass('hidden')
+            }
+          })
+          .catch((e) => {
+            window.alert('Error')
+            console.log(e)
+          })
       })
 })
