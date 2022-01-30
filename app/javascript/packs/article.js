@@ -58,4 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
     listenInactiveHeartEvent(articleId)
     listenActiveHeartEvent(articleId)
   })
+
+  //モーダル
+  $(function () {
+    $('#openModal').click(function(){
+        $('#modalArea').fadeIn();
+    });
+    $('#closeModal , #modalBg').click(function(){
+      $('#modalArea').fadeOut();
+    });
+  });
+
 })
