@@ -1,6 +1,7 @@
 .container
   .header
-    = image_tag 'back.svg', class: 'header_left'
+    = link_to :back do
+      = image_tag 'back.svg', class: 'header_left'
     %div
       %p.page_title Comments
   .comment
