@@ -205,6 +205,6 @@ ja:
     am: 午前
     formats:
       default: "%Y/%m/%d"
-      long: "%Y/%m/%d %H:%M"
+      long: "%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
