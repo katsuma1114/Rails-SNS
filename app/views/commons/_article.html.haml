@@ -19,8 +19,6 @@
       = link_to article_comments_path(article) do
         = image_tag 'comment.svg', class: 'article_icon'
       = image_tag 'share.svg', class: 'article_icon'
-    .article_liked
-      %p Jasmine and 12000 other liked your post
     .article_text
       .article_user_name
         %p= article.user.user_name 
