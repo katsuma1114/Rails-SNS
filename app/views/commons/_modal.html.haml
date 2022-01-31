@@ -5,7 +5,9 @@
       .modalWrapper
         .modalContents
           %h2= link_to 'Profile', profile_path
+          %h2= link_to 'Favorites', favorites_path
           %h2= link_to 'Logout', destroy_user_session_path, data: { method: 'delete' }
+
         #closeModal.closeModal
           ×
 - else
