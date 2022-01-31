@@ -13,7 +13,7 @@
       = f.submit '保存'
   .profile_info
     .profile_info_posts
-      %p.profile_info_num 44
+      %p.profile_info_num= current_user.article_count
       %p.profile_info_text Posts
     = link_to account_followers_path(current_user) do
       .profile_info_followers

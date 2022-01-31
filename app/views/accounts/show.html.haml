@@ -10,7 +10,7 @@
     = image_tag @user.avatar_image, class: 'profile_image'
   .profile_info
     .profile_info_posts
-      %p.profile_info_num 44
+      %p.profile_info_num= @user.article_count
       %p.profile_info_text Posts
     = link_to account_followers_path(@user) do
       .profile_info_followers
