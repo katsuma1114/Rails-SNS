@@ -7,7 +7,7 @@
         .article_nav_text_name
           %p= article.user.user_name
         .article_nav_text_time
-          %p 3 hours ago
+          %p= article.display_created_at
     .article_content
       - article.images.each do |images| 
         = image_tag images, class: 'article_content_image'
