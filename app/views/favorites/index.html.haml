@@ -1,0 +1,9 @@
+.container
+  .header
+    = link_to :back do
+      = image_tag 'back.svg', class: 'header_left'
+    %p.page_title Favorites
+  - @articles.each do |article|
+    = render 'commons/article', article: article
+
+= javascript_pack_tag 'article'
