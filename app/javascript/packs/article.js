@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#openModal').click(function(){
         $('#modalArea').fadeIn();
     });
-    $('#closeModal , #modalBg').click(function(){
+    $('#closeModal').click(function(){
       $('#modalArea').fadeOut();
     });
   });
