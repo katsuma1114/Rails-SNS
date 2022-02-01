@@ -34,6 +34,12 @@
     text-align: center;
     border-bottom: none;
     margin-top: 110px;
+    align-items: center;
+
+    input {
+        background: none;
+        border: none;
+    }
 }
 input {
     border: none;
