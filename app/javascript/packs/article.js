@@ -22,6 +22,7 @@ const listenInactiveHeartEvent = (articleId) => {
         }
       })
       .catch((e) => {
+        window.alert('Error')
         console.log(e)
       })
   })
@@ -37,6 +38,7 @@ const listenActiveHeartEvent = (articleId) => {
         }
       })
       .catch((e) => {
+        window.alert('Error')
         console.log(e)
       })
   })
@@ -69,4 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  //ツイッターにシェアするかどうかを確認（誤操作防止）
+  $('.share-twitter').click(function(){
+    window.alert('Twitterにシェアしますか？')
+  })
 })
