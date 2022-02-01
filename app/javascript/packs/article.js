@@ -73,6 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //ツイッターにシェアするかどうかを確認（誤操作防止）
   $('.share-twitter').click(function(){
-    window.alert('Twitterにシェアしますか？')
+    if (!confirm('Twitterにシェアしますか？')) {
+      return false;
+    } else {
+      return true;
+    }
   })
 })
