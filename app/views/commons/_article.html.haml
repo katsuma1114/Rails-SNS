@@ -12,11 +12,14 @@
       - article.images.each do |images| 
         = image_tag images, class: 'article_content_image'
     .article_action
-      .article_heart.hidden.active-heart{:id => article.id}
-        = image_tag 'heart-active.svg', class: 'article_icon'
-      .article_heart.hidden.inactive-heart{:id => article.id}
-        = image_tag 'heart.svg', class: 'article_icon'
-      = image_tag 'trash.svg', class: 'article_icon'
+      - if user_signed_in?
+        .article_heart.hidden.active-heart{:id => article.id}
+          = image_tag 'heart-active.svg', class: 'article_icon'
+        .article_heart.hidden.inactive-heart{:id => article.id}
+          = image_tag 'heart.svg', class: 'article_icon'
+        - if current_user.has_written?(article)
+          = link_to article_path(article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } do
+            = image_tag 'trash.svg', class: 'article_icon'
       = link_to article_comments_path(article) do
         = image_tag 'comment.svg', class: 'article_icon'
       = link_to "https://twitter.com/share?url=#{request.url}/&text=これはいいサービスだ！", target: '_blank' do

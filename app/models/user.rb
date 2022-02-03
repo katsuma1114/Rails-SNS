@@ -73,6 +73,10 @@ class User < ApplicationRecord
     following_relationships.exists?(following_id: user.id)
   end
 
+  def has_written?(article) #自分の記事かどうか判断
+    articles.exists?(id: article.id)
+  end
+
   def follow!(user) #フォロー
     user_id = get_user_id(user)
 
