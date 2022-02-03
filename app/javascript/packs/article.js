@@ -4,6 +4,7 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
+//いいねの表示切り替え
 const handleHeartDisplay = (hasLiked, articleId) => {
   if (hasLiked) {
     $('#' + articleId + '.active-heart').removeClass('hidden')
@@ -12,6 +13,7 @@ const handleHeartDisplay = (hasLiked, articleId) => {
   }
 }
 
+//いいね機能
 const listenInactiveHeartEvent = (articleId) => {
   $('#' + articleId + '.inactive-heart').on('click', () => {
     axios.post(`/articles/${articleId}/like`)
@@ -27,7 +29,7 @@ const listenInactiveHeartEvent = (articleId) => {
       })
   })
 }
-
+//いいね解除機能
 const listenActiveHeartEvent = (articleId) => {
   $('#' + articleId + '.active-heart').on('click', () => {
     axios.delete(`/articles/${articleId}/like`)
@@ -66,9 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#openModal').click(function(){
         $('#modalArea').fadeIn();
     });
-    $('#closeModal').click(function(){
+    $('#closeModal,#modalBg').click(function(){
       $('#modalArea').fadeOut();
     });
+  });
+
+  //モーダル2
+  $('#openModal2').click(function(){
+    $('#modalArea2').fadeIn();
+  });
+  $('#closeModal2').click(function(){
+    $('#modalArea2').fadeOut();
   });
 
   //ツイッターにシェアするかどうかを確認（誤操作防止）
