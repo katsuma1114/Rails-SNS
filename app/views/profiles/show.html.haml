@@ -6,8 +6,8 @@
     .profile_name
       %p.page_title= current_user.user_name
   .profile_avatar
-    = image_tag current_user.avatar_image, class: 'modalbtn profile_image', id: 'openModal'
-  %section#modalArea.modalArea
+    = image_tag current_user.avatar_image, class: 'modalbtn profile_image', id: 'openModal2'
+  %section#modalArea2.modalArea
     #modalBg.modalBg
       .modalWrapper
         .modalContents
@@ -17,7 +17,7 @@
               %div
                 = f.file_field :avatar
               = f.submit '保存', class: 'form-btn'
-        #closeModal.closeModal
+        #closeModal2.closeModal
           ×
   .profile_info
     .profile_info_posts
