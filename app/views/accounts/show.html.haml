@@ -20,3 +20,6 @@
       .profile_info_following
         %p.profile_info_num= @user.following_count
         %p.profile_info_text Following
+  - @user.articles.each do |article|
+    = render 'commons/article', article: article
+= javascript_pack_tag 'article'
