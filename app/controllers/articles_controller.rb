@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     def destroy
         article = current_user.articles.find(params[:id])
         article.destroy!
-        redirect_to root_path, notice: '削除に成功しました'
+        redirect_to request.referer, notice: '削除に成功しました'
     end
 
     private
