@@ -2,18 +2,26 @@
   .header
     = link_to root_path do
       = image_tag 'back.svg', class: 'header_left'
+    = render 'commons/modal'
     .profile_name
       %p.page_title= current_user.user_name
   .profile_avatar
-    = image_tag current_user.avatar_image, class: 'profile_image'
-  .profile_form
-    = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
-      %div
-        = f.file_field :avatar
-      = f.submit '保存'
+    = image_tag current_user.avatar_image, class: 'modalbtn profile_image', id: 'openModal2'
+  %section#modalArea2.modalArea
+    #modalBg.modalBg
+      .modalWrapper
+        .modalContents
+          %h2 Edit your avatar
+          .profile_form
+            = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
+              %div
+                = f.file_field :avatar
+              = f.submit '保存', class: 'form-btn'
+        #closeModal2.closeModal
+          ×
   .profile_info
     .profile_info_posts
-      %p.profile_info_num 44
+      %p.profile_info_num= current_user.article_count
       %p.profile_info_text Posts
     = link_to account_followers_path(current_user) do
       .profile_info_followers
@@ -23,11 +31,4 @@
       .profile_info_following
         %p.profile_info_num= current_user.following_count
         %p.profile_info_text Following
-  -# .profile_contents
-  -#   .photos
-  -#     = image_tag 'photo1.png'
-  -#     = image_tag 'photo2.png'
-  -#     = image_tag 'photo3.png'
-  -#     = image_tag 'photo4.png'
-  -#     = image_tag 'photo5.png'
-  -#     = image_tag 'photo6.png'
+= javascript_pack_tag 'article'

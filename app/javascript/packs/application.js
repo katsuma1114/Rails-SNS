@@ -21,6 +21,7 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
+//フォローボタンの操作
 const handleFollowBtn = (hasFollowed) => {
     if (hasFollowed) {
         $('.btn-following').removeClass('hidden')
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
           handleFollowBtn(hasFollowed)
       })
 
+      //フォロー機能
       $('.btn-follow').on('click', () => {
         axios.post(`/accounts/${accountId}/follows`)
           .then((response) => {
@@ -70,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
           })
       })
       
+      //アンフォロー機能
       $('.btn-following').on('click', () => {
         axios.post(`/accounts/${accountId}/unfollows`)
           .then((response) => {

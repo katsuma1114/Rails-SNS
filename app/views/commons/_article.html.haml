@@ -16,10 +16,11 @@
         = image_tag 'heart-active.svg', class: 'article_icon'
       .article_heart.hidden.inactive-heart{:id => article.id}
         = image_tag 'heart.svg', class: 'article_icon'
+      = image_tag 'trash.svg', class: 'article_icon'
       = link_to article_comments_path(article) do
         = image_tag 'comment.svg', class: 'article_icon'
       = link_to "https://twitter.com/share?url=#{request.url}/&text=これはいいサービスだ！", target: '_blank' do
-        = image_tag 'share.svg', class: 'article_icon'
+        = image_tag 'share.svg', class: 'article_icon share-twitter'
     .article_text
       .article_user_name
         %p= article.user.user_name 

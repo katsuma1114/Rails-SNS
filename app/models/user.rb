@@ -57,25 +57,29 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
-  def following_count
+  def following_count #フォローしている数をカウント
     followings.count
   end
 
-  def follower_count
+  def follower_count #フォローされている数をカウント
     followers.count
   end
 
-  def has_followed?(user)
+  def article_count #記事を投稿した数をカウント
+    articles.count
+  end
+
+  def has_followed?(user) #されているか判断
     following_relationships.exists?(following_id: user.id)
   end
 
-  def follow!(user)
+  def follow!(user) #フォロー
     user_id = get_user_id(user)
 
     following_relationships.create!(following_id: user_id)
   end
 
-  def unfollow!(user)
+  def unfollow!(user) #アンフォロー
     user_id = get_user_id(user)
 
     relation = following_relationships.find_by!(following_id: user_id)
