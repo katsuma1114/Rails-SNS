@@ -18,4 +18,13 @@
 class Profile < ApplicationRecord
     belongs_to :user
     has_one_attached :avatar
+    
+    validate :image_type
+    
+    private
+    def image_type
+        if !avatar.blob.content_type.in?(%('image/jpeg image/png'))
+          errors.add(:avatar, 'はjpegまたはpng形式でアップロードしてください')
+        end
+    end
 end

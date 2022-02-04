@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
             redirect_to action: :index, notice: '保存できたよ！'
         else
             flash.now[:errors] = '保存に失敗しました'
-            render :root_path
+            render :new
         end
     end
 

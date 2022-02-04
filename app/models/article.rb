@@ -23,8 +23,30 @@ class Article < ApplicationRecord
     
     belongs_to :user
     
+    validates :images, presence: true
+    validate :image_length, :image_type
+
+    validates :content, presence: true
+
     #日付を表記する
     def display_created_at
         I18n.l(self.created_at, format: :long)
+    end
+
+     private
+
+     def image_length
+        if images.length > 5
+            images = nil
+            errors.add(:images, 'は5枚以内にしてください')
+        end
+     end
+
+     def image_type
+        images.each do |image|
+          if !image.blob.content_type.in?(%('image/jpeg image/png'))
+            errors.add(:images, 'はjpegまたはpng形式でアップロードしてください')
+          end
+        end
     end
 end
