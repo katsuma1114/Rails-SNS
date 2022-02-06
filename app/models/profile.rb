@@ -19,8 +19,9 @@ class Profile < ApplicationRecord
     belongs_to :user
     has_one_attached :avatar
     
+    validates :avatar, presence: true
     validate :image_type
-    
+
     private
     def image_type
         if !avatar.blob.content_type.in?(%('image/jpeg image/png'))
