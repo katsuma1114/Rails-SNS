@@ -89,4 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
     }
   })
+
+  $('#profile_avatar').change(function(){
+    $('.changed-file').removeClass('hidden')
+  })
 })
