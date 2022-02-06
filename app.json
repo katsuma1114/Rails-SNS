@@ -1,0 +1,16 @@
+{
+    "name": "rails-sns",
+    "description": "This is Blog sns",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/katsuma1114/Rails-SNS",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+  }

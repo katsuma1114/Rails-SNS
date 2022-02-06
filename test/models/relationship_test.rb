@@ -2,11 +2,11 @@
 #
 # Table name: relationships
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  follower_id  :integer          not null
-#  following_id :integer          not null
+#  follower_id  :bigint           not null
+#  following_id :bigint           not null
 #
 # Indexes
 #
@@ -15,8 +15,8 @@
 #
 # Foreign Keys
 #
-#  follower_id   (follower_id => users.id)
-#  following_id  (following_id => users.id)
+#  fk_rails_...  (follower_id => users.id)
+#  fk_rails_...  (following_id => users.id)
 #
 require 'test_helper'
 
