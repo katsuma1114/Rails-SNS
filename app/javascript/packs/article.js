@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   $('#profile_avatar').change(function(){
-    $('.changed-file').removeClass('hidden')
+    console.log('テストです')
+    // $('.changed-file').removeClass('hidden')
   })
 })
