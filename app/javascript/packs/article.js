@@ -89,9 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
     }
   })
-  //avatar保存ボタン表示
-  $('.avatar-upload').click(function(){
-    $('.changed-file').removeClass('hidden')
-  })
 })
 
