@@ -2,10 +2,10 @@
 #
 # Table name: profiles
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
@@ -13,14 +13,15 @@
 #
 # Foreign Keys
 #
-#  user_id  (user_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Profile < ApplicationRecord
     belongs_to :user
     has_one_attached :avatar
     
+    validates :avatar, presence: true
     validate :image_type
-    
+
     private
     def image_type
         if !avatar.blob.content_type.in?(%('image/jpeg image/png'))
