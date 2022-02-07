@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
     }
   })
-
-  $('#profile_avatar').change(function(){
-    console.log('テストです')
-    // $('.changed-file').removeClass('hidden')
+  //avatar保存ボタン表示
+  $('.avatar-upload').click(function(){
+    $('.changed-file').removeClass('hidden')
   })
 })
+
