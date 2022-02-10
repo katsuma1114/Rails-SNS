@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :followings, only: [:index]
     resources :followers, only: [:index]
   end
-  resource :profile, only: [:show, :edit, :update]
+  resource :profile, only: [:show, :update]
   resources :favorites, only: [:index]
   resources :timelines, only: [:index]
 end
