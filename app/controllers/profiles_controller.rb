@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    @profile = Profile.new
     @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
