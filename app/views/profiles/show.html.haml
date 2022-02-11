@@ -13,7 +13,7 @@
         .modalContents
           %h2 Edit your avatar
           .profile_form
-            = form_with(model: Profile.new, url: profile_path, method: 'PUT', local: true) do |f|
+            = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
               %div
                 = f.file_field :avatar, class: 'avatar-upload'
               = f.submit '保存', class: 'form-btn hidden changed-file'
