@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
       root_path
     end
 
+    def current_user
+      ActiveDecorator::Decorator.instance.decorate(super) if super.present?
+      super
+    end
+
     protected
   
     def configure_permitted_parameters

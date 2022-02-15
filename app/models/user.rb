@@ -46,28 +46,8 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
-  def avatar_image #アバターがあればそれを、なければno-img-avatar.jpgを返す
-    if profile&.avatar&.attached?
-      profile.avatar
-    else
-      "no-user-image.png"
-    end
-  end
-
   def has_liked?(article)#いいねしてるかしてないか判断
     likes.exists?(article_id: article.id)
-  end
-
-  def following_count #フォローしている数をカウント
-    followings.count
-  end
-
-  def follower_count #フォローされている数をカウント
-    followers.count
-  end
-
-  def article_count #記事を投稿した数をカウント
-    articles.count
   end
 
   def has_followed?(user) #されているか判断

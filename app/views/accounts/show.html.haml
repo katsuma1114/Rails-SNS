@@ -2,8 +2,9 @@
   .header
     = link_to root_path do
       = image_tag 'back.svg', class: 'header_left'
-    %p.header_right.hidden.btn-following Following
-    %p.header_right.hidden.btn-follow Follow
+    - if user_signed_in?
+      %p.header_right.hidden.btn-following Following
+      %p.header_right.hidden.btn-follow Follow
     .profile_name
       %p.page_title= @user.user_name
   .profile_avatar
@@ -22,4 +23,5 @@
         %p.profile_info_text Following
   - @user.articles.each do |article|
     = render 'commons/article', article: article
+= javascript_pack_tag 'follow'
 = javascript_pack_tag 'article'

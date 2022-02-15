@@ -5,8 +5,6 @@
     = render 'commons/modal'
     .profile_name
       %p.page_title= current_user.user_name
-  -# - @profile.errors.full_messages.each do |message|
-  -#   %li= message
   .profile_avatar
     = image_tag current_user.avatar_image, class: 'modalbtn profile_image', id: 'openModal2'
   %section#modalArea2.modalArea
@@ -17,7 +15,7 @@
           .profile_form
             = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
               %div
-                = f.file_field :avatar
+                = f.file_field :avatar, required: true, class: 'avatar-upload'
               = f.submit '保存', class: 'form-btn hidden changed-file'
         #closeModal2.closeModal
           ×
