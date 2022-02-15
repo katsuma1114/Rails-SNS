@@ -15,7 +15,7 @@
           .profile_form
             = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
               %div
-                = f.file_field :avatar, class: 'avatar-upload'
+                = f.file_field :avatar, required: true, class: 'avatar-upload'
               = f.submit '保存', class: 'form-btn hidden changed-file'
         #closeModal2.closeModal
           ×
