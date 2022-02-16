@@ -27,5 +27,13 @@ RSpec.describe 'Comments', type: :request do
         expect(Comment.last.content).to eq(comment_params[:content])
       end
     end
+
+    context 'ログインしていない場合' do
+      it 'ログイン画面に遷移する' do
+        comment_params = attributes_for(:comment)
+        post article_comments_path( {article_id: article.id, comment: comment_params} )
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
