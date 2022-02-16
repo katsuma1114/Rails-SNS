@@ -13,9 +13,17 @@ RSpec.describe 'Articles', type: :request do
 
   describe 'POST /articles' do
     context 'ログインしている場合' do
-
       before do
         sign_in user
+      end
+
+      it "投稿が保存される" do
+        article_params = attributes_for(:article)
+        post articles_path({article: article_params})
+        expect(response).to have_http_status(302)
+        expect(Article.last.content).to eq(article_params[:content])
+
+        # article.rbのpresence: trueを外せば通る
       end
     end
   end
