@@ -10,4 +10,13 @@ RSpec.describe 'Articles', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'POST /articles' do
+    context 'ログインしている場合' do
+
+      before do
+        sign_in user
+      end
+    end
+  end
 end
