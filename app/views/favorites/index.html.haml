@@ -3,7 +3,7 @@
     = link_to :back do
       = image_tag 'back.svg', class: 'header_left'
     = render 'commons/modal'
-    %p.page_title Favorites
+    %p.page_title お気に入り記事
   - @articles.each do |article|
     = render 'commons/article', article: article
 

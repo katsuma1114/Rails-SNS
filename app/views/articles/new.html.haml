@@ -1,8 +1,8 @@
 .container
   .header
     = link_to root_path do
-      %p.header_left.post_cansel Cance
-    %p.page_title Status
+      %p.header_left.post_cansel 戻る
+    %p.page_title 記事を投稿
     %ul
   - @article.errors.full_messages.each do |message|
     %li= message
@@ -11,10 +11,10 @@
     %p.post_name= current_user.user_name
   = form_with( model: @article, url: articles_path, method: 'post', local: true ) do |f|
     %div.post_content
-      = f.text_field :content, placeholder: ' What is on your mind ? ', class: 'text'
+      = f.text_field :content, placeholder: ' 今日はどう過ごしましたか ? ', class: 'text'
     %label.post_contents_image
-      + Album
+      + 画像
       = f.file_field :images, multiple: true
     %div
-      = f.submit 'Post', class: 'header_right'
+      = f.submit 'ポスト', class: 'header_right'
       
