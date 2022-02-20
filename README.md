@@ -1,5 +1,6 @@
 # Rails Sns
 This project is a simple social networking application made with Ruby on Rails.
+This application is only available for smartphones.
 
 * database (PostgreSQL)
 * image file upload (AWS S3)
