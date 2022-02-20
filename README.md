@@ -1,24 +1,64 @@
-# README
+# Rails Sns
+This project is a simple social networking application made with Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* database (PostgreSQL)
+* image file upload (AWS S3)
+* deploy (heroku)
 
-Things you may want to cover:
+# Features
+This application allows you to post images and keep a daily record of your life.
 
-* Ruby version
+UI is inspired by Instagram.
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+# Users table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|not null|
+|email|string|not null|
+|password|string|nut null|
+## Association
+* has_many :articles
+* has_many :comments
+* has_many :likes
+* has_many :favorite_articles
+* has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship'
+* has_many :followings, through: :following_relationships
+* has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship'
+* has_many :followers, through: :follower_relationships
+* has_one :profile
 
-* Database initialization
+# Articles table
+|Column|Type|Options|
+|------|----|-------|
+|content|text|not null|
+## Association
+* belongs_to :user
 
-* How to run the test suite
+* has_many_attached :images (Active Storage)
+* has_many :comments
+* has_many :likes
 
-* Services (job queues, cache servers, search engines, etc.)
+# Comments table
+|Column|Type|Options|
+|------|----|-------|
+|content|text|not null|
+## Association
+* belongs_to :user
+* belongs_to :article
 
-* Deployment instructions
+# Likes table
+## Association
+* belongs_to :user
+* belongs_to :article
 
-* ...
+# Profiles table
+## Association
+* belongs_to :user
+* has_one_attached :avatar (Active storage)
+
+# Relationship table
+## Association
+* belongs_to :follower, class_name: 'User'
+* belongs_to :following, class_name: 'User'
