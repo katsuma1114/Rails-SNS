@@ -11,7 +11,7 @@
     #modalBg.modalBg
       .modalWrapper
         .modalContents
-          %h2 Edit your avatar
+          %h2 プロフィールを変更する
           .profile_form
             = form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
               %div
@@ -22,15 +22,15 @@
   .profile_info
     .profile_info_posts
       %p.profile_info_num= current_user.article_count
-      %p.profile_info_text Posts
+      %p.profile_info_text 投稿
     = link_to account_followers_path(current_user) do
       .profile_info_followers
         %p.profile_info_num= current_user.follower_count 
-        %p.profile_info_text Followers
+        %p.profile_info_text フォロワー
     = link_to account_followings_path(current_user) do
       .profile_info_following
         %p.profile_info_num= current_user.following_count
-        %p.profile_info_text Following
+        %p.profile_info_text フォロー
   - current_user.articles.each do |article|
     = render 'commons/article', article: article
 = javascript_pack_tag 'article'
